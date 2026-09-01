@@ -73,7 +73,7 @@ def score_listing(listing: dict, normalized: dict, broker_history: dict = None) 
     rental_result = _rental_score(normalized)
 
     location_score = max(0, 100 - location_result["risk_points"])
-    price_risk_score = price_result["risk_points"]
+    price_risk_score = max(0, 100 - price_result["risk_points"])
     broker_score = max(0, 100 - broker_result["risk_points"])
     rental_score = rental_result["score"]
 
