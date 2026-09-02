@@ -5,6 +5,7 @@ Phase 4 (Repository Layer) + Phase 5 (Scoring-Persistenz, Fuzzy-Kandidatensuche)
 
 import json
 from database.connection import get_connection
+from intelligence.dedupe import PRICE_SIMILARITY_MAX_TOLERANCE
 
 
 class ListingRepository:
@@ -44,7 +45,7 @@ class ListingRepository:
         conn.close()
         return result
 
-    def find_candidates(self, city: str = None, price: float = None, price_tolerance: float = 0.08):
+    def find_candidates(self, city: str = None, price: float = None, price_tolerance: float = PRICE_SIMILARITY_MAX_TOLERANCE):
         """
         Grobe Vorauswahl möglicher Duplikate für die Identity-Score-Prüfung
         (Phase 5), damit wir nicht die gesamte Tabelle fuzzy vergleichen müssen.
