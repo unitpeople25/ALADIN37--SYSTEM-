@@ -61,6 +61,14 @@ def normalize(extracted: dict) -> dict:
         if normalized.get(field) in (None, ""):
             normalized[field] = value
 
+    # Contract: Der Extractor liefert eine konkrete "license", während
+    # die Scoring Engine mit dem booleschen Feld "has_rental_license"
+    # arbeitet. Eine vorhandene Lizenzangabe ist ein positives Signal,
+    # sofern kein expliziter boolescher Wert bereits gesetzt wurde.
+    if normalized.get("license") not in (None, ""):
+        if normalized.get("has_rental_license") is None:
+            normalized["has_rental_license"] = True
+
     # Widerspruchs-Erkennung: Textbehauptung ohne strukturelles Gegenstück
     # (z.B. "Meerblick" im Text, aber kein Foto-/Lizenz-Beweis im System) -
     # wird als Flag mitgegeben, die Risk Engine wertet es aus.
