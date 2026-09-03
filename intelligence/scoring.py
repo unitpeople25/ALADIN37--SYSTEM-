@@ -7,12 +7,11 @@ und berechnet den Gesamtscore:
 
     total = location*0.30 + price_risk*0.30 + rental*0.20 + broker*0.20
 
-Hinweis zur Formel: PRICE RISK fließt hier bewusst als Risiko-Score
-(höher = teurer/riskanter) direkt in die Summe ein - so wie im
-ALADIN37-Referenzbeispiel (Lage 82, Preisrisiko 67, Vermietbarkeit 78,
-Maklertransparenz 54 -> Gesamt 71). Der Gesamtscore ist also kein reiner
-"je höher desto besser"-Wert, sondern ein Entscheidungs-Indexscore, den
-die Decision Layer interpretiert (siehe pipeline.py).
+Hinweis zur Formel: PRICE RISK wird intern als Risiko-Score bewertet
+(höher = teurer/riskanter) und vor der Gewichtung in einen positiven
+Qualitätsscore transformiert (höher = besser). Damit gilt für alle vier
+Hauptscores und den Gesamtscore: höher = besser. Die Decision Layer
+interpretiert den daraus berechneten Gesamtscore (siehe pipeline.py).
 """
 
 from risk import price_risk, location_risk, broker_risk
