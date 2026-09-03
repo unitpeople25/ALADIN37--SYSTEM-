@@ -88,6 +88,7 @@ def score_listing(listing: dict, normalized: dict, broker_history: dict = None) 
         location_result["flags"]
         + price_result["flags"]
         + broker_result["flags"]
+        + normalized.get("_normalizer_flags", [])
     )
 
     return {
