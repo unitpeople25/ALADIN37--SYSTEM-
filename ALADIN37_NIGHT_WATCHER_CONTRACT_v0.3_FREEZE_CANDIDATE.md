@@ -1,7 +1,5 @@
 # ALADIN37 – Night-Watcher Contract v0.3 (FREEZE CANDIDATE)
-Status: BEIDE KONFLIKTBEDINGTEN SCOPE-/SCHEMA-ÄNDERUNGEN BESTÄTIGT — FREEZE FREIGEGEBEN,
-vorbehaltlich des tatsächlichen Git-Commit-Hashes in Abschnitt 7. Bis zum Eintrag dieses
-Hashes: kein autonomes Handeln, keine Automation, kein Schreiben in SOURCES.
+Status: EINGEFROREN — Provenienz-Commit 6f26d7c933cc3512a1ae4d09488478148fd61901 (2026-09-09)
 Basis: Contract v0.1 + Bootstrap Addendum v1.0 (ACCEPTED) + v0.2 Merge (Scope- und
 file_id-Erweiterung von Jens bestätigt)
 
@@ -266,11 +264,8 @@ nach außen.
 - [x] Write Boundary von Jens geprüft
 - [x] **`[ADDED]`** Bootstrap-State geprüft: `ALADIN37_STATE.json` enthält
       `"status": "UNINITIALIZED"`, `"last_baseline_scan": null`, `"file_index": []`
-- [ ] Contract eingefroren (Datum: **2026-09-09**, Git-Commit: `__________`)
-      — Datum gesetzt gemäß Freigabe; Commit-Hash wird bewusst **nicht** vorab
-      eingetragen, sondern erst nach dem tatsächlichen Freeze-Commit als
-      Provenienzreferenz nachgetragen. Bis zum Eintrag des Hashes gilt dieser
-      Contract als FREEZE CANDIDATE, nicht als final EINGEFROREN.
+- [x] Contract eingefroren (Datum: **2026-09-09**, Git-Commit: `6f26d7c933cc3512a1ae4d09488478148fd61901`)
+      — Provenienz-Hash nachgetragen. Contract ist formal EINGEFROREN.
 
 **`[ADDED]` Verbindliche Reihenfolge nach Freeze:**
 ```
@@ -304,8 +299,6 @@ Contract mechanisch abgeleitet.
 | `file_registry.jsonl` Generalisierung (`file_id`, `commit_id` optional) | ✅ **bestätigt** (2.2) |
 | Freeze-Reihenfolge | ✅ korrigiert (7) |
 | Bestehende Reports (`delta_report_2026-09-08`) | ✅ unverändert |
+| Provenienz-Hash eingetragen | ✅ 6f26d7c933cc3512a1ae4d09488478148fd61901 |
 
-**Einziger offener Punkt vor finalem EINGEFROREN-Status:** der tatsächliche
-Git-Commit-Hash in Abschnitt 7. Dieser wird erst nach dem realen Commit der
-finalen Fassung eingetragen — nicht vorab. Bis dahin: Status FREEZE CANDIDATE,
-Votum FREEZE FREIGEGEBEN.
+**Status:** EINGEFROREN. Nächster isolierter Schritt: Gate 2 — expliziten Scope befüllen.
